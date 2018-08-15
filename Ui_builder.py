@@ -430,6 +430,8 @@ class Ui_MainWindow(object):
         self.actionResetCamera = QtWidgets.QAction(MainWindow)
         self.actionResetCamera.setObjectName("actionResetCamera")
         self.actionToggleDarkMode = QtWidgets.QAction(MainWindow)
+        self.actionResetPlacer = QtWidgets.QAction(MainWindow)
+        self.actionResetPlacer.setObjectName("actionResetPlacer")
         self.actionToggleDarkMode.setCheckable(True)
         self.actionToggleDarkMode.setObjectName("actionToggleDarkMode")
 
@@ -441,6 +443,7 @@ class Ui_MainWindow(object):
         self.menuFile.addAction(self.actionSave)
 
         self.menuView.addAction(self.actionResetCamera)
+        self.menuView.addAction(self.actionResetPlacer)
         self.menuView.addSeparator()
         self.menuView.addAction(self.actionToggleDarkMode)
 
@@ -489,10 +492,10 @@ class Ui_MainWindow(object):
         self.actionOpenWith.setText(_translate("MainWindow", "Open With"))
         self.actionConvert.setText(_translate("MainWindow", "Convert"))
         self.actionResetCamera.setText(_translate("MainWindow", "Reset Camera"))
+        self.actionResetPlacer.setText(_translate("MainWindow", "Reset Placer"))
         self.actionToggleDarkMode.setText(_translate("MainWindow", "Dark Mode"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
         self.actionSave.setText(_translate("MainWindow", "Save"))
         self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
         self.actionNew.setText(_translate("MainWindow", "New"))
         self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
-

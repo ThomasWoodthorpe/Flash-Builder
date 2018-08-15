@@ -1,36 +1,45 @@
 import ctypes
-import json
-import os
-import sys
-import tkinter as tk
-from math import sqrt
-from tkinter import filedialog, messagebox
-
-import numpy as np
 import pyqtgraph.opengl as gl
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
-
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStyleFactory
+import os
 from pyqtgraph import mkColor
 from customwidget import framecustomwidget, meshcustomwidget
 from Ui_builder import Ui_MainWindow
 import Ui_about
+import Ui_loading_window
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 APP_ID = "mitgobla.teamlightning.flashbuilder.beta"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APP_ID)
 
+
 _TRANSLATE = QtCore.QCoreApplication.translate
 
-APP = QApplication(sys.argv)
+APP = QApplication([])
+APP.setStyle(QStyleFactory.create('GTK+'))
 WINDOW = QMainWindow()
 ABOUT_DIALOG = QDialog()
+ABOUT_DIALOG.setStyle(QStyleFactory.create('GTK+'))
 ABOUT_UI = Ui_about.Ui_Dialog()
 ABOUT_UI.setupUi(ABOUT_DIALOG)
+LOADING_DIALOG = QDialog()
+LOADING_DIALOG.setStyle(QStyleFactory.create('GTK+'))
+LOADING_UI = Ui_loading_window.Ui_Dialog()
+LOADING_UI.setupUi(LOADING_DIALOG)
 UI = Ui_MainWindow()
 UI.setupUi(WINDOW)
 
+LOADING_DIALOG.show()
 
+import json
+import sys
+import tkinter as tk
+from math import sqrt
+from tkinter import filedialog, messagebox
+from tkinter import ttk
+import numpy as np
+from time import sleep
 class Graphics:
 
     def __init__(self):
@@ -248,6 +257,10 @@ class Builder:
         else:
             UI.label_printtime.setText(_TRANSLATE(
                 "MainWindow", "Estimated Print Time: N/A seconds"))
+
+    def reset_frame(self):
+        self.graphics.next_coordinates = [0, 0, 0]
+        self.graphics.update_frame()
 
     def move_frame(self, axis, displacement):
         self.graphics.next_coordinates[axis] = self.graphics.next_coordinates[axis] + displacement
@@ -542,7 +555,7 @@ class ModelIO:
         self.builder = builder
         self.window = tk.Tk()
         self.window.withdraw()
-        self.window.wm_iconbitmap(SCRIPT_DIR+"\\bolt-icon.ico")
+        self.window.wm_iconbitmap(SCRIPT_DIR+"\\flash-software-128.ico")
 
     def save(self):
         UI.actionSave.setDisabled(True)
@@ -716,6 +729,7 @@ UI.pushButton_printfile.clicked.connect(SAVE_IO.save)
 UI.actionOpen.triggered.connect(lambda: SAVE_IO.open_file(False))
 UI.actionOpenWith.triggered.connect(lambda: SAVE_IO.open_file(True))
 UI.actionResetCamera.triggered.connect(APPLICATION.reset_camera)
+UI.actionResetPlacer.triggered.connect(BUILDER.reset_frame)
 UI.actionToggleDarkMode.triggered.connect(APPLICATION.toggle_dark_mode)
 
 ABOUT_UI.pushButton.clicked.connect(ABOUT_DIALOG.close)
@@ -724,5 +738,14 @@ UI.spinBox_grid_x.valueChanged.connect(BUILDER.update_grid)
 UI.spinBox_grid_y.valueChanged.connect(BUILDER.update_grid)
 
 
-WINDOW.show()
+PAUSE_TIMER = QtCore.QTimer()
+
+def loading():
+    LOADING_DIALOG.close()
+    WINDOW.show()
+    PAUSE_TIMER.stop()
+
+PAUSE_TIMER.timeout.connect(loading)
+PAUSE_TIMER.start(5000)
+
 sys.exit(APP.exec_())
