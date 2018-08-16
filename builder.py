@@ -1,18 +1,23 @@
 import ctypes
+import json
+import os
+import sys
+import tkinter as tk
+from math import sqrt
+from time import sleep
+from tkinter import filedialog, messagebox, ttk
+import numpy as np
 import pyqtgraph.opengl as gl
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QStyleFactory
-import os
+from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QStyleFactory
 from pyqtgraph import mkColor
+import Ui_about
 from customwidget import framecustomwidget, meshcustomwidget
 from Ui_builder import Ui_MainWindow
-import Ui_about
-import Ui_loading_window
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 APP_ID = "mitgobla.teamlightning.flashbuilder.beta"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APP_ID)
-
 
 _TRANSLATE = QtCore.QCoreApplication.translate
 
@@ -23,23 +28,10 @@ ABOUT_DIALOG = QDialog()
 ABOUT_DIALOG.setStyle(QStyleFactory.create('GTK+'))
 ABOUT_UI = Ui_about.Ui_Dialog()
 ABOUT_UI.setupUi(ABOUT_DIALOG)
-LOADING_DIALOG = QDialog()
-LOADING_DIALOG.setStyle(QStyleFactory.create('GTK+'))
-LOADING_UI = Ui_loading_window.Ui_Dialog()
-LOADING_UI.setupUi(LOADING_DIALOG)
 UI = Ui_MainWindow()
 UI.setupUi(WINDOW)
 
-LOADING_DIALOG.show()
 
-import json
-import sys
-import tkinter as tk
-from math import sqrt
-from tkinter import filedialog, messagebox
-from tkinter import ttk
-import numpy as np
-from time import sleep
 class Graphics:
 
     def __init__(self):
@@ -738,14 +730,16 @@ UI.spinBox_grid_x.valueChanged.connect(BUILDER.update_grid)
 UI.spinBox_grid_y.valueChanged.connect(BUILDER.update_grid)
 
 
-PAUSE_TIMER = QtCore.QTimer()
+#PAUSE_TIMER = QtCore.QTimer()
+#
+#def loading():
+#    LOADING_DIALOG.close()
+#    WINDOW.show()
+#    PAUSE_TIMER.stop()
+#
+#PAUSE_TIMER.timeout.connect(loading)
+#PAUSE_TIMER.start(5000)
 
-def loading():
-    LOADING_DIALOG.close()
-    WINDOW.show()
-    PAUSE_TIMER.stop()
-
-PAUSE_TIMER.timeout.connect(loading)
-PAUSE_TIMER.start(5000)
+WINDOW.show()
 
 sys.exit(APP.exec_())
