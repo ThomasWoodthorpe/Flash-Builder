@@ -11,10 +11,8 @@ import pyqtgraph.opengl as gl
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QStyleFactory
 from pyqtgraph import mkColor
-import Ui_about
-from customwidget import framecustomwidget, meshcustomwidget
-from Ui_builder import Ui_MainWindow
-
+from resources.ui.customwidget import framecustomwidget, meshcustomwidget
+from resources.ui import Ui_about, Ui_builder
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 APP_ID = "mitgobla.teamlightning.flashbuilder.beta"
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APP_ID)
@@ -28,7 +26,7 @@ ABOUT_DIALOG = QDialog()
 ABOUT_DIALOG.setStyle(QStyleFactory.create('GTK+'))
 ABOUT_UI = Ui_about.Ui_Dialog()
 ABOUT_UI.setupUi(ABOUT_DIALOG)
-UI = Ui_MainWindow()
+UI = Ui_builder.Ui_MainWindow()
 UI.setupUi(WINDOW)
 
 
@@ -547,7 +545,7 @@ class ModelIO:
         self.builder = builder
         self.window = tk.Tk()
         self.window.withdraw()
-        self.window.wm_iconbitmap(SCRIPT_DIR+"\\flash-software-128.ico")
+        self.window.wm_iconbitmap(SCRIPT_DIR+"\\resources\\flash-software-128.ico")
 
     def save(self):
         UI.actionSave.setDisabled(True)
@@ -660,7 +658,7 @@ class ModelIO:
 
 
 APPLICATION = Application()
-WINDOW.setWindowIcon(QtGui.QIcon(SCRIPT_DIR+'\\flash-software-128.png'))
+WINDOW.setWindowIcon(QtGui.QIcon(SCRIPT_DIR+'\\resources\\flash-software-128.png'))
 BUILDER = APPLICATION.builder
 
 SAVE_IO = ModelIO(BUILDER, APPLICATION)

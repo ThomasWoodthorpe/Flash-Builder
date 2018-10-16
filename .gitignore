@@ -2,5 +2,6 @@ __pycache__/
 dist/
 releases/
 buildprogram.bat
+builder.spec
 build/
 .vscode/
