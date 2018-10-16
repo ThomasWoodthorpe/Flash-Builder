@@ -69,6 +69,12 @@ I just want to say thank you to some people who have made this possible:
 
 ## More Photos
 
+![Image of First Software Developemt](docs/original-software.png?raw=true "Original Development of the software")
+
+This is the first development of the FLASH software that we used after the competition.
+
+---------
+
 ![Image of Brick Cartridges](docs/printer-cartridges.png?raw=true "Printer Cartridges")
 
 These are the printer LEGO Brick Cartridges. Each brick instruction also adds an instruction to go to the brick dispenser to pick up a new brick.
