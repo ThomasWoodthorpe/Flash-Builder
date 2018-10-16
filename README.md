@@ -82,3 +82,9 @@ Programmed with synchronous axis movement. You can see the original string metho
 ![GIF of Printer placing brick](docs/printer-place-brick.gif?raw=true "Printer placing brick")
 
 The first development of the printer had problems with the print head slipping when it placed bricks. However, we managed to get the final model to place bricks without requiring a motor to press it on to the plate.
+
+----------
+
+![GIF of Printer movement](docs/printer-movement.gif?raw=true "Printer Movement")
+
+More synchronous movement.
