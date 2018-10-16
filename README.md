@@ -61,7 +61,9 @@ After the competiton, we rebuilt the printer which was more accurate and stronge
 
 I just want to say thank you to some people who have made this possible:
 
-**Edward Upton** ([engiego](http://github.com/engiego)) for the collaboration and ideas for the software.
+**Edward Upton** ([engiego](http://github.com/engiego)) for the collaboration, testing, and ideas for the software.
+
+**Thomas Woodthorpe** ([https://lonewolfdesign.co.uk](https://lonewolfdesign.co.uk)) for testing the code from the start till the end, and creating models during the competiton.
 
 **Team Lightning** crew for creating the printer idea and building it, and being successful in the Technocamps competition.
 
