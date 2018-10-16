@@ -27,7 +27,7 @@ You'll notice that there are 5 estimated instructions even though no bricks have
   - prevention of building bricks inside one another
   - prevention of building floating bricks
 
-![Image of Model in Software](docs/flash-2.png?raw=true "FLASH Model Preview")
+![Image of Model in Software](docs/flash-2.PNG?raw=true "FLASH Model Preview")
 
 ### Controls
 
