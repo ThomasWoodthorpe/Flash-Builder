@@ -85,6 +85,12 @@ The first development of the printer had problems with the print head slipping w
 
 ----------
 
+![Photo of Y & Z axis mechanics](docs/printer-mechanics.png?raw=true "Printer Mechanics")
+
+Final Model Y & Z axis mechanics built by Edward.
+
+----------
+
 ![GIF of Printer movement](docs/printer-movement.gif?raw=true "Printer Movement")
 
 More synchronous movement.
