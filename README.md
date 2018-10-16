@@ -71,6 +71,14 @@ I just want to say thank you to some people who have made this possible:
 
 These are the printer LEGO Brick Cartridges. Each brick instruction also adds an instruction to go to the brick dispenser to pick up a new brick.
 
+----------
+
 ![GIF of Printer in action](docs/printer-working.gif?raw=true "Printer in action")
 
 Programmed with synchronous axis movement. You can see the original string method we used to move the print bed.
+
+----------
+
+![GIF of Printer placing brick](docs/printer-place-brick.gif?raw=true "Printer placing brick")
+
+The first development of the printer had problems with the print head slipping when it placed bricks. However, we managed to get the final model to place bricks without requiring a motor to press it on to the plate.
