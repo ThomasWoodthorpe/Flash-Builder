@@ -79,25 +79,25 @@ This is the first development of the FLASH software that we used after the compe
 
 These are the printer LEGO Brick Cartridges. Each brick instruction also adds an instruction to go to the brick dispenser to pick up a new brick.
 
-----------
+----------;
 
 ![GIF of Printer in action](docs/printer-working.gif?raw=true "Printer in action")
 
 Programmed with synchronous axis movement. You can see the original string method we used to move the print bed.
 
-----------
+----------;
 
 ![GIF of Printer placing brick](docs/printer-place-brick.gif?raw=true "Printer placing brick")
 
 The first development of the printer had problems with the print head slipping when it placed bricks. However, we managed to get the final model to place bricks without requiring a motor to press it on to the plate.
 
-----------
+----------;
 
 ![Photo of Y & Z axis mechanics](docs/printer-mechanics.png?raw=true "Printer Mechanics")
 
 Final Model Y & Z axis mechanics built by Edward.
 
-----------
+----------;
 
 ![GIF of Printer movement](docs/printer-movement.gif?raw=true "Printer Movement")
 
