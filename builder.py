@@ -533,9 +533,11 @@ class Application:
 
     def toggle_dark_mode(self):
         if UI.actionToggleDarkMode.isChecked():
-            UI.openGL_preview.setBackgroundColor(mkColor(55, 55, 55, 0))
+            UI.openGL_preview.setBackgroundColor(mkColor(30, 30, 30, 0))
+            UI.centralwidget.setStyleSheet("background-color: rgb(37, 37, 38);")
         else:
             UI.openGL_preview.setBackgroundColor(mkColor(155, 155, 155, 0))
+            UI.centralwidget.setStyleSheet("background-color: rgb(255, 255, 255);")
 
 
 class ModelIO:
